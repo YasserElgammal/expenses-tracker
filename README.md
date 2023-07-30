@@ -4,12 +4,13 @@
 # Expenses Tracker
 
 - The application allows users to add, edit, and delete their expenses and income as needed, making it easy to manage their finances in one place.
-- The application also provides users with a clear view of their financial transactions, displaying a summary of their income and expenses for each month and year.
-- This feature allows users to quickly evaluate their financial performance and make informed decisions about their spending habits.
+- The application also provides users with a clear view of their financial transactions, displaying a summary of their income and expenses for each month and year, in addition to that it's calculate saving amount, This feature allows users to quickly evaluate their financial performance and make informed decisions about their spending habits.
 
 I've used:
-- Laravel 10
-- Sanctum
+- Laravel 10,
+- Laravel Sanctum,
+- Traits, Enums, Resources,
+- Handle API versioning to enable scalability easily for the project in the future, 
 - DTO & Service Layer:
 I utilized the Data Transfer Object (DTO) pattern in my implementation, helped me to separate my model from the controller layer and allowed me to pass data between my application's various components in a structured format.
 Additionally, I implemented a Service Layer to encapsulate the business logic, which further enhanced the application's scalability and maintainability.
@@ -68,10 +69,10 @@ POST /api/v1/categories/{id}
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string| yes |none|
-|name|body|string| no |none|
-|description|body|string| no |none|
-|type|body|string| no |income , expense|
-|_method|body|string| no |PUT|
+|name|body|string| yes |none|
+|description|body|string| yes |none|
+|type|body|string| yes |income , expense|
+|_method|body|string| yes |PUT|
 
 ## DELETE destroy
 
@@ -136,11 +137,11 @@ POST /api/v1/transactions/{id}
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
 |id|path|string| yes |none|
-|amount|body|string| no |none|
-|description|body|string| no |none|
-|category_id|body|string| no |none|
+|amount|body|string| yes |none|
+|description|body|string| yes |none|
+|category_id|body|string| yes |none|
 |date|body|date| yes |format: Y-m-d|
-|_method|body|string| no |PUT|
+|_method|body|string| yes |PUT|
 
 ## DELETE destroy
 

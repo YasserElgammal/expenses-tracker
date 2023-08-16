@@ -24,7 +24,7 @@ class TransactionRequest extends FormRequest
     public function rules(): array
     {
         $categoryType = Category::where('user_id', auth()->id())
-        ->findOrFail(@$this->category_id)->type;
+            ->findOrFail(@$this->category_id)->type;
 
         return [
             'amount' => [
@@ -38,10 +38,10 @@ class TransactionRequest extends FormRequest
     }
 
     public function messages()
-{
-    return [
-        'amount.lt' => trans('app.transcations.amount.less_than'),
-        'amount.gt' => trans('app.transcations.amount.greater_than'),
-    ];
-}
+    {
+        return [
+            'amount.lt' => trans('app.transcations.amount.less_than'),
+            'amount.gt' => trans('app.transcations.amount.greater_than'),
+        ];
+    }
 }

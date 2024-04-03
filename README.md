@@ -163,7 +163,7 @@ GET /api/v1/transactions/statistics
 
 ## About Me
 
-Iam a Junior Backend Developer with one year of experience, I specialize in PHP, Laravel, and front-end technologies like TailwindCSS and Livewire. I have expertise in developing REST APIs and working with MySQL databases, and I am familiar with software architecture patterns such as MVC and HMVC. I am committed to producing clean, well-documented code that is easily maintainable, and I enjoy sharing my knowledge through various channels. I am eager to take on new challenges and continue to develop my skills.
+I am a Junior Backend Developer with 1+ year of experience, I specialize in PHP, Laravel, and front-end technologies like TailwindCSS and Livewire. I have expertise in developing REST APIs and working with MySQL databases, and I am familiar with software architecture patterns such as MVC and HMVC. I am committed to producing clean, well-documented code that is easily maintainable, and I enjoy sharing my knowledge through various channels. I am eager to take on new challenges and continue to develop my skills.
 
 - [LinkedIn](https://www.linkedin.com/in/elgammal/).
 - [Youtube](https://www.youtube.com/@yasser.elgammal).

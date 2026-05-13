@@ -63,6 +63,6 @@ class TransactionService
                 DB::raw('DATE_FORMAT(transactions.date, "%M - %Y") as month_year'),
                 DB::raw('SUM(CASE WHEN categories.type = "income" THEN transactions.amount ELSE 0 END) as month_income_total'),
                 DB::raw('SUM(CASE WHEN categories.type = "expense" THEN transactions.amount ELSE 0 END) as month_expense_total')
-            )->groupBy('month_year')->latest('date')->paginate((int) $request->items_per_page ?: config('constants.items_per_page'));
+            )->groupBy('month_year')->orderByRaw('MAX(transactions.date) DESC')->paginate((int) $request->items_per_page ?: config('constants.items_per_page'));
     }
 }

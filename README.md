@@ -70,7 +70,7 @@ POST /api/v1/categories/{id}
 |---|---|---|---|---|
 |id|path|string| yes |none|
 |name|body|string| yes |none|
-|description|body|string| yes |none|
+|description|body|string| no |none|
 |type|body|string| yes |income , expense|
 |_method|body|string| yes |PUT|
 

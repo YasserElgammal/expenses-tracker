@@ -37,7 +37,7 @@ POST /api/v1/categories
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
 |name|body|string| yes|none|
-|description|body|string| yes|none|
+|description|body|string| no |none|
 |type|body|string| yes |income , expense|
 
 ## GET: show

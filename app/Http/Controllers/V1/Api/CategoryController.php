@@ -14,48 +14,47 @@ class CategoryController extends Controller
 {
     public function __construct(
         protected CategoryService $service
-    ) {
-    }
+    ) {}
 
     public function index(Request $request)
     {
         $categories = $this->service->index($request);
 
-        return $this->successReponse(data: CategoryResource::collection($categories));
+        return $this->successResponse(data: CategoryResource::collection($categories));
     }
 
     public function store(CategoryRequest $request)
     {
         $this->service->store(CategoryDto::comingRequestFromApi($request));
 
-        return $this->successReponse(message: trans('app.record_added'));
+        return $this->successResponse(message: trans('app.record_added'));
     }
 
     public function show($id)
     {
         $category = $this->service->show($id);
 
-        return $this->successReponse(data: CategoryResource::make($category));
+        return $this->successResponse(data: CategoryResource::make($category));
     }
 
     public function update($id, CategoryRequest $request)
     {
         $this->service->update($id, CategoryDto::comingRequestFromApi($request));
 
-        return $this->successReponse(message: trans('app.record_updated'));
+        return $this->successResponse(message: trans('app.record_updated'));
     }
 
     public function destroy($id)
     {
         $this->service->destroy($id);
 
-        return $this->successReponse(message: trans('app.record_deleted'));
+        return $this->successResponse(message: trans('app.record_deleted'));
     }
 
     public function listAuthUserCategory()
     {
         $listUserCategories = $this->service->listAuthUserCategory();
 
-        return $this->successReponse(data: SimpleListResource::collection($listUserCategories));
+        return $this->successResponse(data: SimpleListResource::collection($listUserCategories));
     }
 }

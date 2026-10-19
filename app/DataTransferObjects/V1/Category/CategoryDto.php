@@ -13,8 +13,7 @@ class CategoryDto
         public readonly string $type,
         public readonly string $user_id,
         public readonly AddedSource $added_source
-    ) {
-    }
+    ) {}
 
     public static function comingRequestFromApi(CategoryRequest $request)
     {

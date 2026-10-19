@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->enum('type', CategoryType::values());
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->enum('added_source', AddedSource::values());

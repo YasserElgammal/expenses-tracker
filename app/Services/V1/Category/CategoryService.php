@@ -4,10 +4,12 @@ namespace App\Services\V1\Category;
 
 use App\DataTransferObjects\V1\Category\CategoryDto;
 use App\Models\V1\Category;
+use App\Traits\HasPagination;
 use Illuminate\Http\Request;
 
 class CategoryService
 {
+    use HasPagination;
 
     public function store(CategoryDto $categoryDto)
     {
@@ -23,7 +25,7 @@ class CategoryService
     public function index(Request $request)
     {
         return Category::with('user')->where('user_id', auth()->id())->latest('created_at')
-            ->paginate((int) $request->items_per_page ?: config('constants.items_per_page'));
+            ->paginate($this->perPage($request));
     }
 
     public function show($id)

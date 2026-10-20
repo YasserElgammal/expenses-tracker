@@ -4,11 +4,14 @@ namespace App\Services\V1\Transaction;
 
 use App\DataTransferObjects\V1\Transaction\TransactionDto;
 use App\Models\V1\Transaction;
+use App\Traits\HasPagination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class TransactionService
 {
+    use HasPagination;
+
     public function store(TransactionDto $transactionDto)
     {
         return Transaction::create([
@@ -24,7 +27,7 @@ class TransactionService
     public function index(Request $request)
     {
         return Transaction::with('user', 'category')->where('user_id', auth()->id())->latest('date')
-            ->paginate((int) $request->items_per_page ?: config('constants.items_per_page'));
+            ->paginate($this->perPage($request));
     }
 
     public function show($id)
@@ -68,7 +71,7 @@ class TransactionService
                 DB::raw('DATE_FORMAT(transactions.date, "%M - %Y") as month_year'),
                 DB::raw('SUM(CASE WHEN categories.type = "income" THEN transactions.amount ELSE 0 END) as month_income_total'),
                 DB::raw('SUM(CASE WHEN categories.type = "expense" THEN transactions.amount ELSE 0 END) as month_expense_total')
-            )->groupBy('month_year')->orderByRaw('MAX(transactions.date) DESC')->paginate((int) $request->items_per_page ?: config('constants.items_per_page'));
+            )->groupBy('month_year')->orderByRaw('MAX(transactions.date) DESC')
+            ->paginate($this->perPage($request));
     }
-
 }

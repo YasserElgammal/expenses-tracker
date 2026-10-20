@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\V1\Api\{AuthController, CategoryController, TransactionController};
+use App\Http\Controllers\V1\Api\AuthController;
+use App\Http\Controllers\V1\Api\CategoryController;
+use App\Http\Controllers\V1\Api\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 // Echo

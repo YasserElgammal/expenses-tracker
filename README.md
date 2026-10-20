@@ -159,11 +159,24 @@ GET /api/v1/transactions/statistics
 
 |Name|Location|Type|Required|Description|
 |---|---|---|---|---|
-|items_per_page|query|string| no |none|
+|items_per_page|query|integer|no|Number of results per page (maximum: 100)|
+|month|query|integer|no|Month number from 1 to 12; `year` is required when provided|
+|year|query|integer|required with `month`|Four-digit year; can be used alone|
+
+### Examples
+
+```http
+GET /api/v1/transactions/statistics?year=2026
+GET /api/v1/transactions/statistics?month=10&year=2026
+```
 
 ## About Me
 
-I am a Junior Backend Developer with 1+ year of experience, I specialize in PHP, Laravel, and front-end technologies like TailwindCSS and Livewire. I have expertise in developing REST APIs and working with MySQL databases, and I am familiar with software architecture patterns such as MVC and HMVC. I am committed to producing clean, well-documented code that is easily maintainable, and I enjoy sharing my knowledge through various channels. I am eager to take on new challenges and continue to develop my skills.
+Backend Developer specializing in PHP and Laravel, with experience in Go and building scalable, reliable backend systems.
+
+Experienced in developing REST APIs, working with MySQL and PostgreSQL, and designing clean, maintainable backend architectures. I also work with Livewire and TailwindCSS when building full-stack web applications.
+
+I enjoy building open-source tools, packages, and frameworks, and continuously exploring better ways to design and develop software.
 
 - [LinkedIn](https://www.linkedin.com/in/elgammal/).
 - [Youtube](https://www.youtube.com/@yasser.elgammal).

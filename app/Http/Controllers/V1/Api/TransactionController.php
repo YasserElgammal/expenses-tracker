@@ -4,13 +4,12 @@ namespace App\Http\Controllers\V1\Api;
 
 use App\DataTransferObjects\V1\Transaction\TransactionDto;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\V1\Api\StatisticsRequest;
 use App\Http\Requests\V1\Api\TransactionRequest;
 use App\Http\Resources\V1\Api\MonhtlyStatisticsResource;
 use App\Http\Resources\V1\Api\TransactionResource;
-use App\Models\V1\Transaction;
 use App\Services\V1\Transaction\TransactionService;
 use Illuminate\Http\Request;
-
 
 class TransactionController extends Controller
 {
@@ -53,10 +52,11 @@ class TransactionController extends Controller
         return $this->successResponse(message: trans('app.record_deleted'));
     }
 
-    public function statistics(Request $request)
+    public function statistics(StatisticsRequest $request)
     {
         $transactions = $this->service->statistics($request);
 
         return $this->successResponse(data: MonhtlyStatisticsResource::collection($transactions));
     }
+
 }
